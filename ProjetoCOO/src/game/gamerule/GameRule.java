@@ -7,7 +7,7 @@ import java.util.List;
 
 import entities.drawer.Player;
 import entities.drawer.body.basic_body.Body;
-import entities.states.ExplodingState;
+import entities.states.PlayerExplodingState;
 
 public class GameRule implements GameRules {
 
@@ -46,7 +46,7 @@ public class GameRule implements GameRules {
 		if (a instanceof Player || b instanceof Player) {
 			Player p;
 			p = (Player) (a instanceof Player ? a : b);
-			p.setCurrentState(new ExplodingState(p));
+			p.setCurrentState(new PlayerExplodingState(p));
 			// Se houve uma colisão entre Player e mais algo, retorna true sai
 			// da checagem de colisão.
 			return true;
@@ -57,6 +57,8 @@ public class GameRule implements GameRules {
 	@Override
 	public void processStep() {
 		checkColision();
+		for(Body b: this.playerList)
+			b.getCurrentState().doState();
 	}
 
 	@Override

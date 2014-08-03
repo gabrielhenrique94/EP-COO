@@ -1,10 +1,7 @@
 package entities.drawer.body.basic_body;
 
-import java.util.Observable;
-import java.util.Observer;
-
-import entities.states.InactiveState;
 import interfaces.States;
+import entities.states.InactiveState;
 
 public abstract class Body{
 
@@ -16,7 +13,7 @@ public abstract class Body{
 	public Body(double posX, double posY, double velX, double velY) {
 		this.pos = new Posicao(posX, posY);
 		this.vel = new Velocidade(velX, velY);
-		this.currentState = new InactiveState();
+		this.currentState = new InactiveState(this);
 	}
 	
 	public Posicao getPosicao() {

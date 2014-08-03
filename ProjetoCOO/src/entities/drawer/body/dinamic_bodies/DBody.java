@@ -1,7 +1,6 @@
 package entities.drawer.body.dinamic_bodies;
 
 import entities.drawer.body.basic_body.Body;
-import interfaces.States;
 
 public abstract class DBody extends Body {
 

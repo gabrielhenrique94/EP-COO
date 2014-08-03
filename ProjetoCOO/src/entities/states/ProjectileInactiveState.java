@@ -1,7 +1,7 @@
 package entities.states;
 
-import entities.drawer.body.basic_body.Body;
 import interfaces.States;
+import entities.drawer.body.basic_body.Body;
 
 public class ProjectileInactiveState implements States {
 

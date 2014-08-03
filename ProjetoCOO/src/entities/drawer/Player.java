@@ -1,13 +1,8 @@
 package entities.drawer;
 
-import java.awt.Color;
-
-import com.sun.corba.se.spi.orbutil.fsm.State;
-
 import lib.GameLib;
 import entities.drawer.body.dinamic_bodies.DBody;
 import game.gameloop.MainLoop;
-import interfaces.States;
 
 /*Player e Enemy usam Factory?*/
 

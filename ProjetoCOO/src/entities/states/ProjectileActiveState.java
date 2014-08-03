@@ -1,11 +1,12 @@
 package entities.states;
 
+import game.gameloop.MainLoop;
+import interfaces.States;
+
 import java.awt.Color;
 
 import lib.GameLib;
 import entities.drawer.body.basic_body.Body;
-import game.gameloop.MainLoop;
-import interfaces.States;
 
 public class ProjectileActiveState implements States {
 

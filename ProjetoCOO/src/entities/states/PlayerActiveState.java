@@ -1,9 +1,10 @@
 package entities.states;
 
-import java.awt.Color;
-
 import game.gameloop.MainLoop;
 import interfaces.States;
+
+import java.awt.Color;
+
 import lib.GameLib;
 import entities.drawer.Player;
 

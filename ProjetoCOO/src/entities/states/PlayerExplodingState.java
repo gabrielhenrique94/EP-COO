@@ -1,9 +1,9 @@
 package entities.states;
 
-import entities.drawer.Player;
-import lib.GameLib;
 import game.gameloop.MainLoop;
 import interfaces.States;
+import lib.GameLib;
+import entities.drawer.Player;
 
 public class PlayerExplodingState implements States {
 

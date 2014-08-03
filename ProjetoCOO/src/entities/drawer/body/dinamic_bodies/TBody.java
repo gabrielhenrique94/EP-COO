@@ -1,7 +1,6 @@
 package entities.drawer.body.dinamic_bodies;
 
 import entities.drawer.body.basic_body.Body;
-import interfaces.States;
 
 public class TBody extends Body{
 
@@ -9,6 +8,12 @@ public class TBody extends Body{
 	
 	public TBody(double posX, double posY, double velX, double velY) {
 		super(posX, posY, velX, velY);
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,6 +1,4 @@
 package game.gameloop;
-import sun.security.jca.GetInstance;
-import entities.drawer.body.basic_body.Body;
 import game.gamerule.GameRule;
 import interfaces.GameRules;
 
@@ -77,6 +75,10 @@ public class MainLoop {
 	
 	public long getCurrentTime() {
 		return currentTime;
+	}
+	
+	public GameRules getRules() {
+		return rules;
 	}
 	
 	public void stop(){
