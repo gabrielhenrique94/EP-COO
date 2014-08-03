@@ -23,10 +23,10 @@ public class GameRule implements GameRules {
 	}
 
 	public void checkColision() {
-		for (Body b : this.playerList) {
-			for (Body check : this.playerList) {
-				if (b.equals(check))
-					continue;
+		for (int i = 0 ; i < this.playerList.size() ; i++) {
+			Body b = this.playerList.get(i); 
+			for (int j = i + 1; j < this.playerList.size() ; j++) {
+				Body check = playerList.get(j);
 				if (b.checkColission(check) && processColission(b, check)) {
 					return;
 				}
