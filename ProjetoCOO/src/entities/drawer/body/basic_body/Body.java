@@ -51,5 +51,7 @@ public abstract class Body{
 		return Body.checkColission(this ,other);
 	}
 	
+	public abstract void draw();
+	
 	//public abstract void onColide(Body anotherBody);
 }

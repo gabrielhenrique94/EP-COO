@@ -33,6 +33,4 @@ public abstract class DBody extends Body {
 	public long getNextShot() {
 		return nextShot;
 	}
-	
-	public abstract void draw();
 }

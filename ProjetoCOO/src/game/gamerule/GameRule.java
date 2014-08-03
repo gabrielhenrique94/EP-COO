@@ -66,6 +66,7 @@ public class GameRule implements GameRules {
 
 	@Override
 	public void draw() {
-
+		for(Body b : this.playerList)
+			b.draw();
 	}
 }
