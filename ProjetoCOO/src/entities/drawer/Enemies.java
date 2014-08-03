@@ -11,4 +11,10 @@ public class Enemies extends DBody {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

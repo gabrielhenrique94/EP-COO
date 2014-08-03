@@ -3,7 +3,7 @@ package entities.drawer.body.dinamic_bodies;
 import entities.drawer.body.basic_body.Body;
 import interfaces.States;
 
-public class DBody extends Body {
+public abstract class DBody extends Body {
 
 	/* Body para Player e Enemy */
 	private double radius, explosionS, explisionE;
@@ -18,4 +18,21 @@ public class DBody extends Body {
 		this.explosionS = explosionS;
 	}
 
+	public double getRadius() {
+		return radius;
+	}
+	
+	public double getExplosionE() {
+		return explisionE;
+	}
+	
+	public double getExplosionS() {
+		return explosionS;
+	}
+	
+	public long getNextShot() {
+		return nextShot;
+	}
+	
+	public abstract void draw();
 }

@@ -16,6 +16,14 @@ public class ActiveState implements States{
 	public void doState() {
 		if(this.body.getPosicao().getY() > GameLib.HEIGHT + 10) {
 			this.body.setCurrentState(new InactiveState());
+		} else {
+			
 		}
+	}
+
+	@Override
+	public void drawState() {
+		// TODO Auto-generated method stub
+		
 	}
 }

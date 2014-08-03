@@ -15,6 +15,14 @@ public class GameRule implements GameRules {
 
 	public GameRule() {
 		this.playerList = new ArrayList<Body>();
+		initialize();
+	}
+
+	private void initialize() {
+		/*Player*/
+		this.playerList.add(new Player());
+		
+		/*Enemies*/
 	}
 
 	public void addBody(Body body) {
@@ -22,9 +30,9 @@ public class GameRule implements GameRules {
 	}
 
 	public void checkColision() {
-		for (int i = 0 ; i < this.playerList.size() ; i++) {
-			Body b = this.playerList.get(i); 
-			for (int j = i + 1; j < this.playerList.size() ; j++) {
+		for (int i = 0; i < this.playerList.size(); i++) {
+			Body b = this.playerList.get(i);
+			for (int j = i + 1; j < this.playerList.size(); j++) {
 				Body check = playerList.get(j);
 				if (b.checkColission(check) && processColission(b, check)) {
 					return;

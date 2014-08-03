@@ -52,5 +52,4 @@ public abstract class Body{
 	}
 	
 	//public abstract void onColide(Body anotherBody);
-	
 }

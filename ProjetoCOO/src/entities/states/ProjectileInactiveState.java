@@ -16,4 +16,10 @@ public class ProjectileInactiveState implements States {
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	public void drawState() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

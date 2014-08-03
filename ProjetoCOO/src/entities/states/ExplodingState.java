@@ -17,4 +17,10 @@ public class ExplodingState implements States{
 		this.body.setCurrentState(new InactiveState());
 	}
 
+	@Override
+	public void drawState() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
