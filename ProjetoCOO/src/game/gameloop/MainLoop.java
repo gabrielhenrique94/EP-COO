@@ -23,6 +23,7 @@ import interfaces.GameRules;
 
 public class MainLoop implements Runnable {
 	private GameRules rules = null;
+	
 	/* Indica que o jogo está em execução */
 	private ThreadLocal<Boolean> running = new ThreadLocal<Boolean>();
 	
