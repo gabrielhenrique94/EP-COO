@@ -57,7 +57,6 @@ public class MainLoop implements Runnable {
 			
 			currentTime = System.currentTimeMillis();
 			
-			rules.processColission();
 			rules.processStep();
 			rules.processUserInput();
 			rules.draw();
