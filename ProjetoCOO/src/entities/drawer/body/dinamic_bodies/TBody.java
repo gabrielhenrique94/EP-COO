@@ -7,9 +7,8 @@ public class TBody extends Body{
 
 	/* Body para a ProjectTile */
 	
-	public TBody(double posX, double posY, double velX, double velY,
-			States currentState) {
-		super(posX, posY, velX, velY, currentState);
+	public TBody(double posX, double posY, double velX, double velY) {
+		super(posX, posY, velX, velY);
 	}
 
 }

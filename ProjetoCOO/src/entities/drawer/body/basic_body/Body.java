@@ -1,5 +1,6 @@
 package entities.drawer.body.basic_body;
 
+import entities.states.InactiveState;
 import interfaces.States;
 
 public class Body {
@@ -7,12 +8,12 @@ public class Body {
 	private States currentState;
 	private double posX, posY, velX, velY;								
 	
-	public Body(double posX, double posY, double velX, double velY, States currentState) {
+	public Body(double posX, double posY, double velX, double velY) {
 		this.posX = posX;
 		this.posY = posY;
 		this.velX = velX;
 		this.velY = velY;
-		this.currentState = currentState;
+		this.currentState = new InactiveState();
 	}
 	
 	/*Getters e Setters*/

@@ -15,7 +15,10 @@ public class Background {
 		this.count = count;
 	}
 
-	public void ramdomPoints() {
-
-	}
+	public void ramdomPoints(int boundsX, int boundsY) {
+		for(int i = 0; i < pointsX.length; i++) {
+			pointsX[i] = Math.random() * boundsX;
+			pointsY[i] = Math.random() * boundsY;
+		}
+	}	
 }
