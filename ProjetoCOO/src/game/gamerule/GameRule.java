@@ -38,7 +38,7 @@ public class GameRule implements GameRules {
 		if (a instanceof Player || b instanceof Player) {
 			Player p;
 			p = (Player) (a instanceof Player ? a : b);
-			p.setCurrentState(new ExplodingState());
+			p.setCurrentState(new ExplodingState(p));
 			// Se houve uma colisão entre Player e mais algo, retorna true sai
 			// da checagem de colisão.
 			return true;
