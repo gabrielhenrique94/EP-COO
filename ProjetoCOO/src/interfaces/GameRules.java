@@ -4,7 +4,7 @@ import entities.drawer.body.basic_body.Body;
 
 public interface GameRules {
 	
-    void processColission(Body a, Body b);
+    boolean processColission(Body a, Body b);
 
 	void processStep();
 

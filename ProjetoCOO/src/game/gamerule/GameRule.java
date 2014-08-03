@@ -27,19 +27,23 @@ public class GameRule implements GameRules {
 			for (Body check : this.playerList) {
 				if (b.equals(check))
 					continue;
-				// TODO: Calculo de colisão
-				processColission(b, check);
+				if (b.checkColission(check) && processColission(b, check)) {
+					return;
+				}
 			}
 		}
 	}
 
 	@Override
-	public void processColission(Body a, Body b) {
+	public boolean processColission(Body a, Body b) {
 		if (a instanceof Player || b instanceof Player) {
 			Player p;
 			p = (Player) (a instanceof Player?a:b);
 			p.setCurrentState(new ExplodingState());
+			// Se houve uma colisão entre Player e mais algo, retorna true sai da checagem de colisão.
+			return true;
 		}
+		return false;
 	}
 
 	@Override
