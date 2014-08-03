@@ -3,18 +3,17 @@ package entities.states;
 import entities.drawer.body.basic_body.Body;
 import interfaces.States;
 
-public class ExplodingState implements States{
+public class ProjectileInactiveState implements States {
 
 	private Body body;
-	
-	public ExplodingState(Body body) {
+
+	public ProjectileInactiveState(Body body) {
 		this.body = body;
 	}
-	
+
 	@Override
 	public void doState() {
-		/*if com o currentTime*/
-		this.body.setCurrentState(new InactiveState());
+		// TODO Auto-generated method stub
 	}
 
 }
