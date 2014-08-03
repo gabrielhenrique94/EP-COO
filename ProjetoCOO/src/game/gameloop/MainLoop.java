@@ -1,4 +1,7 @@
 package game.gameloop;
+import sun.security.jca.GetInstance;
+import entities.drawer.body.basic_body.Body;
+import game.gamerule.GameRule;
 import interfaces.GameRules;
 
 
@@ -21,12 +24,22 @@ import interfaces.GameRules;
 /*                                                                                               */
 /*************************************************************************************************/
 
-public class MainLoop implements Runnable {
+public class MainLoop {
 	private GameRules rules = null;
-	/* Indica que o jogo está em execução */
-	private ThreadLocal<Boolean> running = new ThreadLocal<Boolean>();
 	
-	public MainLoop(GameRules rules) {
+	private static MainLoop instance = new MainLoop(new GameRule());
+	
+	private long delta;
+	private long currentTime = System.currentTimeMillis();
+
+	private boolean running = false;
+	
+	public static MainLoop getInstance(){
+		return instance;
+	}
+	
+	
+	private MainLoop(GameRules rules) {
 		this.rules = rules;
 	}
 	
@@ -36,17 +49,11 @@ public class MainLoop implements Runnable {
 		// TODO Auto-generated method stub
 		while(System.currentTimeMillis() < time) Thread.yield();
 	}
-	
-	@Override
+
 	public void run() {
 		/* variáveis usadas no controle de tempo efetuado no main loop */
-		//escopo local, para ser thread safe
 		
-		running.set(true);
-		long delta;
-		long currentTime = System.currentTimeMillis();
-
-		while(running.get()){
+		while(running){
 			/* Usada para atualizar o estado dos elementos do jogo    */
 			/* (player, projéteis e inimigos) "delta" indica quantos  */
 			/* ms se passaram desde a última atualização.             */
@@ -64,7 +71,15 @@ public class MainLoop implements Runnable {
 		}	
 	}
 	
+	public long getDelta() {
+		return delta;
+	}
+	
+	public long getCurrentTime() {
+		return currentTime;
+	}
+	
 	public void stop(){
-		running.set(false);
+		running = false;
 	} 
 }
