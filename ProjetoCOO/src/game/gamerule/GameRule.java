@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lib.GameLib;
+import enemies.strategy.Enemy2Strategy;
 import entities.drawer.Background;
 import entities.drawer.Enemies;
 import entities.drawer.Player;
@@ -23,6 +24,8 @@ public class GameRule implements GameRules {
 
 	private List<Body> playerList;
 	private List<Background> bgList;
+	private long nextEnemy2;
+	private int enemy2_count;
 
 	public GameRule() {
 		this.playerList = new ArrayList<Body>();
@@ -42,6 +45,9 @@ public class GameRule implements GameRules {
 		this.bgList.add(bg2);
 		
 		this.playerList.add(Player.getInstance());
+		
+		this.nextEnemy2 = System.currentTimeMillis() + 7000;
+
 	}
 	
 	public void removeBody(Body body){
@@ -98,6 +104,24 @@ public class GameRule implements GameRules {
 			if(b != null)
 				b.getCurrentState().doState();
 		}
+		
+		if(MainLoop.getInstance().getCurrentTime() > nextEnemy2){				
+				System.out.println("can you see me here??");
+				Enemies enemy = new Enemies(new Posicao(GameLib.WIDTH * 0.20, -10.0), 
+						0.42, 12.0, Math.random() > 0.5 ? GameLib.WIDTH * 0.2 : GameLib.WIDTH * 0.8 , 0.0, null);
+				enemy.setStrategy(new Enemy2Strategy(enemy));
+				
+				this.playerList.add(enemy);
+				enemy2_count++;
+				
+				
+				if(enemy2_count < 10){
+					nextEnemy2 = MainLoop.getInstance().getCurrentTime() + 120;
+				}else {
+					enemy2_count = 0;
+					nextEnemy2 = (long) (MainLoop.getInstance().getCurrentTime()+ 3000 + Math.random() * 3000);
+				}
+			}
 	}
 
 	@Override

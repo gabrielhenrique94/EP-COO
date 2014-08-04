@@ -19,16 +19,6 @@ public class Enemy1Strategy implements IStrategy {
 	
 	public Enemy1Strategy(Enemies enemy) {
 		this.enemy = enemy;
-		this.state = new Enemy1ActiveState(enemy); 
-	}
-	
-	@Override
-	public void update() {
-		state.doState();
-	}
-	
-		@Override
-	public void draw() {
-		state.drawState();
+		enemy.setCurrentState(new Enemy1ActiveState(enemy)); 
 	}
 }
