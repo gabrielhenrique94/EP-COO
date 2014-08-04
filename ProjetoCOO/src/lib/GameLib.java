@@ -58,7 +58,8 @@ public class GameLib {
 		g = frame.getBufferStrategy().getDrawGraphics();
 	}
 	
-	public static void setColor(Color c){	
+	public static void setColor(Color c){
+		
 		g.setColor(c);
 	}
 	

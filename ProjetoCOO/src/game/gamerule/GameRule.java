@@ -92,8 +92,9 @@ public class GameRule implements GameRules {
 	@Override
 	public void processStep() {
 		checkColision();
-		for(Body b: this.playerList)
+		for(int i = 0; i < this.playerList.size(); i++)
 		{
+			Body b = this.playerList.get(i);
 			if(b != null)
 				b.getCurrentState().doState();
 		}
@@ -110,9 +111,12 @@ public class GameRule implements GameRules {
 			if(b != null)
 				b.drawMe();
 		
-		for(Body b : this.playerList)
+		for(int i = 0; i < this.playerList.size(); i++) {
+			Body b = this.playerList.get(i);	
 			if(b != null)
 				b.draw();
+			
+		}
 		
 		GameLib.display();
 	}

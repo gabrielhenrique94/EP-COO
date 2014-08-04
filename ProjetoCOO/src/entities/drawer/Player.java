@@ -41,5 +41,4 @@ public class Player extends DBody {
 		this.projectiles.add(pt);
 		MainLoop.getInstance().addBody(pt);
 	}
-
 }
