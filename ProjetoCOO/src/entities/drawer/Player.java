@@ -37,7 +37,7 @@ public class Player extends DBody {
 	}
 	
 	public void addProjectTile(){
-		ProjectTiles pt = new ProjectTiles(this.getPosicao().getX(), this.getPosicao().getY() - 2 * this.getRadius(), 0.0, -1.0, false);
+		ProjectTiles pt = new ProjectTiles(this.getPosicao().getX(), this.getPosicao().getY() - 2 * this.getRaio(), 0.0, -1.0, false);
 		this.projectiles.add(pt);
 		MainLoop.getInstance().addBody(pt);
 	}
