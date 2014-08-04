@@ -1,4 +1,5 @@
 package game.gameloop;
+import entities.drawer.body.basic_body.Body;
 import lib.GameLib;
 import game.gamerule.GameRule;
 import interfaces.GameRules;
@@ -68,8 +69,6 @@ public class MainLoop {
 			
 			currentTime = System.currentTimeMillis();
 			
-			
-			
 			if(GameLib.iskeyPressed(GameLib.KEY_ESCAPE)) stop();
 			
 			rules.processStep();
@@ -86,6 +85,10 @@ public class MainLoop {
 	
 	public long getDelta() {
 		return delta;
+	}
+	
+	public void addBody(Body b) {
+		((GameRule)this.rules).addBody(b);
 	}
 	
 	public long getCurrentTime() {
