@@ -1,12 +1,16 @@
 package game.gamerule;
 
+import game.gameloop.MainLoop;
 import interfaces.GameRules;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.drawer.Enemies;
 import entities.drawer.Player;
+import entities.drawer.ProjectTiles;
 import entities.drawer.body.basic_body.Body;
+import entities.states.EnemyExplodingState;
 import entities.states.PlayerExplodingState;
 
 public class GameRule implements GameRules {
@@ -47,10 +51,22 @@ public class GameRule implements GameRules {
 			Player p;
 			p = (Player) (a instanceof Player ? a : b);
 			p.setCurrentState(new PlayerExplodingState(p));
+			p.setExplosionS(MainLoop.getInstance().getCurrentTime());
+			p.setExplisionE(MainLoop.getInstance().getCurrentTime() + 2000);
 			// Se houve uma colisão entre Player e mais algo, retorna true sai
 			// da checagem de colisão.
 			return true;
+		} else if((a instanceof Enemies || b instanceof Enemies) && (a instanceof ProjectTiles || b instanceof ProjectTiles)) {
+			Enemies e = (Enemies) (a instanceof Enemies?a:b);
+			ProjectTiles pt = (ProjectTiles) (a instanceof ProjectTiles?a:b);
+			
+			if(!pt.isFromEnemy()) {
+				e.setCurrentState(new EnemyExplodingState());
+				e.setExplosionS(MainLoop.getInstance().getCurrentTime());
+				e.setExplisionE(MainLoop.getInstance().getCurrentTime() + 500);
+			}
 		}
+		
 		return false;
 	}
 
