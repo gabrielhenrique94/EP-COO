@@ -14,7 +14,7 @@ public class Player extends DBody {
 	/* Dados padrão */
 	public Player() {
 		super(GameLib.WIDTH / 2, GameLib.HEIGHT * 0.90, 0.25, 0.25, 12, 0, 0,
-				MainLoop.getInstance().getCurrentTime()); // TODO Esse ultimo
+				System.currentTimeMillis()); // TODO Esse ultimo
 															// zero ta errado
 	}
 

@@ -6,6 +6,7 @@ import interfaces.GameRules;
 import java.util.ArrayList;
 import java.util.List;
 
+import lib.GameLib;
 import entities.drawer.Enemies;
 import entities.drawer.Player;
 import entities.drawer.ProjectTiles;
@@ -94,5 +95,8 @@ public class GameRule implements GameRules {
 	public void draw() {
 		for(Body b : this.playerList)
 			b.draw();
+
+		GameLib.display();
+		
 	}
 }
