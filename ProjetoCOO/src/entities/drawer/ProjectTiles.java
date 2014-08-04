@@ -28,6 +28,5 @@ public class ProjectTiles extends TBody{
 	@Override
 	public void draw() {
 		this.getCurrentState().drawState();
-		
 	}
 }

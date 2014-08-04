@@ -91,6 +91,10 @@ public class MainLoop {
 		((GameRule)this.rules).addBody(b);
 	}
 	
+	public void removeBody(Body b) {
+		((GameRule)this.rules).removeBody(b);
+	}
+	
 	public long getCurrentTime() {
 		return currentTime;
 	}
