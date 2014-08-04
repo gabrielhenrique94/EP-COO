@@ -1,4 +1,5 @@
 package game.gameloop;
+import lib.GameLib;
 import game.gamerule.GameRule;
 import interfaces.GameRules;
 
@@ -62,11 +63,18 @@ public class MainLoop {
 			
 			currentTime = System.currentTimeMillis();
 			
+			if(GameLib.iskeyPressed(GameLib.KEY_ESCAPE)) stop();
+			
 			rules.processStep();
 			rules.processUserInput();
 			rules.draw();
+			
+			GameLib.display();
+			
 			busyWait(currentTime + 5);
 		}	
+		
+		System.exit(0);
 	}
 	
 	public long getDelta() {

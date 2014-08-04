@@ -15,8 +15,8 @@ public class PlayerExplodingState implements States {
 
 	@Override
 	public void doState() {
-		// TODO Auto-generated method stub
-
+		if(MainLoop.getInstance().getCurrentTime() > this.body.getExplosionE())
+			this.body.setCurrentState(new PlayerActiveState(body));
 	}
 
 	@Override
