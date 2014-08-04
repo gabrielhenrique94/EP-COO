@@ -30,7 +30,7 @@ public class GameRule implements GameRules {
 		playerList.add(bala);
 	}
 	private void initialize() {
-		this.playerList.add(new Player());
+		this.playerList.add(Player.getInstance());
 	}
 	
 	public void removeBody(Body body){
@@ -82,7 +82,10 @@ public class GameRule implements GameRules {
 	public void processStep() {
 		checkColision();
 		for(Body b: this.playerList)
-			b.getCurrentState().doState();
+		{
+			if(b != null)
+				b.getCurrentState().doState();
+		}
 	}
 
 	@Override
@@ -93,6 +96,7 @@ public class GameRule implements GameRules {
 	@Override
 	public void draw() {
 		for(Body b : this.playerList)
-			b.draw();
+			if(b != null)
+				b.draw();
 	}
 }

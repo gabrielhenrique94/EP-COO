@@ -14,6 +14,7 @@ public abstract class DBody extends Body {
 		this.radius = radius;
 		this.explisionE = explosionE;
 		this.explosionS = explosionS;
+		
 	}
 
 	public double getRadius() {

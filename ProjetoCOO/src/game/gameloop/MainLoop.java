@@ -26,20 +26,24 @@ import interfaces.GameRules;
 public class MainLoop {
 	private GameRules rules = null;
 	
-	private static MainLoop instance = new MainLoop(new GameRule());
+	private static MainLoop instance;
 	
 	private long delta;
 	private long currentTime = System.currentTimeMillis();
 
 	private boolean running = false;
 	
-	public static MainLoop getInstance(){
+	public synchronized static MainLoop getInstance(){
+		if(instance == null)
+			return new MainLoop(new GameRule());
 		return instance;
 	}
 	
 	
 	private MainLoop(GameRules rules) {
 		this.rules = rules;
+		this.running = true;
+		run();
 	}
 	
 	/* Espera, sem fazer nada, até que o instante de tempo atual seja */
@@ -52,6 +56,8 @@ public class MainLoop {
 	public void run() {
 		/* variáveis usadas no controle de tempo efetuado no main loop */
 		
+		GameLib.initGraphics();
+		
 		while(running){
 			/* Usada para atualizar o estado dos elementos do jogo    */
 			/* (player, projéteis e inimigos) "delta" indica quantos  */
@@ -62,6 +68,8 @@ public class MainLoop {
 			/* Já a variável "currentTime" nos dá o timestamp atual.  */
 			
 			currentTime = System.currentTimeMillis();
+			
+			
 			
 			if(GameLib.iskeyPressed(GameLib.KEY_ESCAPE)) stop();
 			

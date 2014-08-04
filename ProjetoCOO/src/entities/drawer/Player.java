@@ -1,6 +1,5 @@
 package entities.drawer;
 
-import sun.security.jca.GetInstance;
 import lib.GameLib;
 import entities.drawer.body.basic_body.Body;
 import entities.drawer.body.dinamic_bodies.DBody;
