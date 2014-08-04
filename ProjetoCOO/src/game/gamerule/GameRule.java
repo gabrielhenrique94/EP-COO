@@ -3,10 +3,12 @@ package game.gamerule;
 import game.gameloop.MainLoop;
 import interfaces.GameRules;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import lib.GameLib;
+import entities.drawer.Background;
 import entities.drawer.Enemies;
 import entities.drawer.Player;
 import entities.drawer.ProjectTiles;
@@ -20,9 +22,11 @@ import entities.states.PlayerExplodingState;
 public class GameRule implements GameRules {
 
 	private List<Body> playerList;
+	private List<Background> bgList;
 
 	public GameRule() {
 		this.playerList = new ArrayList<Body>();
+		this.bgList = new ArrayList<Background>();
 		initialize();
 	}
 
@@ -31,6 +35,12 @@ public class GameRule implements GameRules {
 		playerList.add(bala);
 	}
 	private void initialize() {
+		Background bg1 = new Background(20, 0.070, 0.0, Color.DARK_GRAY);
+		Background bg2 = new Background(50, 0.045, 0.0, Color.GRAY);
+		
+		this.bgList.add(bg1);
+		this.bgList.add(bg2);
+		
 		this.playerList.add(Player.getInstance());
 	}
 	
@@ -96,10 +106,14 @@ public class GameRule implements GameRules {
 
 	@Override
 	public void draw() {
+		for(Background b : this.bgList)
+			if(b != null)
+				b.drawMe();
+		
 		for(Body b : this.playerList)
 			if(b != null)
 				b.draw();
-
+		
 		GameLib.display();
 	}
 }

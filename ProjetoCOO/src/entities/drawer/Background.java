@@ -13,13 +13,15 @@ public class Background {
 	private double speed;
 	private double count;
 	private int numPoints;
+	private Color color;
 
-	public Background(int numPoints, double speed, double count) {
+	public Background(int numPoints, double speed, double count, Color color) {
 		this.pointsX = new double[numPoints];
 		this.pointsY = new double[numPoints];
 		this.numPoints = numPoints;
 		this.speed = speed;
 		this.count = count;
+		this.color = color;
 		
 		ramdomPoints(GameLib.WIDTH, GameLib.HEIGHT);
 	}
@@ -31,9 +33,9 @@ public class Background {
 		}
 	}
 	
-	public void drawMe(Color color)
+	public void drawMe()
 	{
-		GameLib.setColor(color);
+		GameLib.setColor(this.color);
 		this.count += speed * MainLoop.getInstance().getDelta();
 		
 		for(int i = 0; i < numPoints; i++){

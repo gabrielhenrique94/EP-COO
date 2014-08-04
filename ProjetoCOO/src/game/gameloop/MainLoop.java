@@ -26,7 +26,7 @@ import interfaces.GameRules;
 public class MainLoop {
 	private GameRules rules = null;
 	
-	private static MainLoop instance;
+	private static MainLoop instance = new MainLoop(new GameRule());
 	
 	private long delta;
 	private long currentTime = System.currentTimeMillis();
@@ -35,7 +35,7 @@ public class MainLoop {
 	
 	public synchronized static MainLoop getInstance(){
 		if(instance == null)
-			return new MainLoop(new GameRule());
+			instance = new MainLoop(new GameRule());
 		return instance;
 	}
 	
@@ -43,7 +43,6 @@ public class MainLoop {
 	private MainLoop(GameRules rules) {
 		this.rules = rules;
 		this.running = true;
-		run();
 	}
 	
 	/* Espera, sem fazer nada, até que o instante de tempo atual seja */
@@ -77,7 +76,7 @@ public class MainLoop {
 			rules.processUserInput();
 			rules.draw();
 			
-			GameLib.display();
+			//GameLib.display();
 			
 			busyWait(currentTime + 5);
 		}	
