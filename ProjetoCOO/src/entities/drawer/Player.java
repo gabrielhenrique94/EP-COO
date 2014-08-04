@@ -9,7 +9,7 @@ import game.gameloop.MainLoop;
 /*Player e Enemy usam Factory?*/
 
 public class Player extends DBody {
-	private static Player instance = new Player();
+	private static Player instance;
 	 
 	/* Dados padrão */
 	public Player() {
@@ -24,7 +24,9 @@ public class Player extends DBody {
 		this.getCurrentState().drawState();
 	}
 
-	public static Body getInstance() {
+	public synchronized static Body getInstance() {
+		if(instance == null)
+			instance = new Player();
 		return instance;
 	}
 

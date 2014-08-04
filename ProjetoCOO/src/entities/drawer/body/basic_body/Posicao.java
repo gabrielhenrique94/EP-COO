@@ -29,7 +29,7 @@ public class Posicao {
 	
 	public void set(double x, double y){
 		this.x = x;
-		this.x = y;
+		this.y = y;
 	}
 	
 	public void move(double deltaX, double deltaY){
