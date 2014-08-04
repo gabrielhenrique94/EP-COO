@@ -11,7 +11,6 @@ public abstract class DBody extends Body {
 	public DBody(double posX, double posY, double velX, double velY,
 			double radius, double explosionS, double explosionE, long nextShot) {
 		super(posX, posY, velX, velY);
-
 		this.radius = radius;
 		this.explisionE = explosionE;
 		this.explosionS = explosionS;
@@ -39,5 +38,9 @@ public abstract class DBody extends Body {
 	
 	public void setExplosionS(double explosionS) {
 		this.explosionS = explosionS;
+	}
+
+	public void setNextShot(long nextShot){
+		this.nextShot = nextShot;
 	}
 }

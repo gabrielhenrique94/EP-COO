@@ -1,18 +1,16 @@
 package entities.drawer;
 
+import sun.security.jca.GetInstance;
 import lib.GameLib;
+import entities.drawer.body.basic_body.Body;
 import entities.drawer.body.dinamic_bodies.DBody;
 import game.gameloop.MainLoop;
 
 /*Player e Enemy usam Factory?*/
 
 public class Player extends DBody {
-	
-	public Player(double posX, double posY, double velX, double velY,
-			double radius, double explosionS, double explosionE, long nextShot) {
-		super(posX, posY, velX, velY, radius, explosionS, explosionE, nextShot);
-	}
-
+	private static Player instance = new Player();
+	 
 	/* Dados padrão */
 	public Player() {
 		super(GameLib.WIDTH / 2, GameLib.HEIGHT * 0.90, 0.25, 0.25, 12, 0, 0,
@@ -23,6 +21,10 @@ public class Player extends DBody {
 	@Override
 	public void draw() {
 		this.getCurrentState().drawState();
+	}
+
+	public static Body getInstance() {
+		return instance;
 	}
 
 }
