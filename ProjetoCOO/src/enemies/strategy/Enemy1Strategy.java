@@ -13,11 +13,11 @@ import entities.drawer.Player;
 import entities.drawer.body.basic_body.Velocidade;
 import entities.states.Enemy1ActiveState;
 
-public class EnemyStrategy implements IStrategy {
+public class Enemy1Strategy implements IStrategy {
 	private Enemies enemy = null;
 	private States state;
 	
-	public EnemyStrategy(Enemies enemy) {
+	public Enemy1Strategy(Enemies enemy) {
 		this.enemy = enemy;
 		this.state = new Enemy1ActiveState(enemy); 
 	}
