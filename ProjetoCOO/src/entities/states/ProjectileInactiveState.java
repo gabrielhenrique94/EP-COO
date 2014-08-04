@@ -1,5 +1,6 @@
 package entities.states;
 
+import game.gameloop.MainLoop;
 import interfaces.States;
 import entities.drawer.body.basic_body.Body;
 
@@ -13,13 +14,11 @@ public class ProjectileInactiveState implements States {
 
 	@Override
 	public void doState() {
-		// TODO Auto-generated method stub
+		MainLoop.getInstance().removeBody(this.body);
 	}
 
 	@Override
 	public void drawState() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

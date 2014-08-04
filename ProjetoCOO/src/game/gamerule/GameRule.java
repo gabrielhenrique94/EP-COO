@@ -15,7 +15,6 @@ import entities.drawer.ProjectTiles;
 import entities.drawer.body.basic_body.Body;
 import entities.drawer.body.basic_body.Posicao;
 import entities.drawer.body.basic_body.Velocidade;
-import entities.drawer.body.dinamic_bodies.TBody;
 import entities.states.EnemyExplodingState;
 import entities.states.PlayerExplodingState;
 
@@ -34,6 +33,7 @@ public class GameRule implements GameRules {
 		ProjectTiles bala = new ProjectTiles(pos.getX(), pos.getY(), v.getX(), v.getY(), fromEnemy);
 		playerList.add(bala);
 	}
+	
 	private void initialize() {
 		Background bg1 = new Background(20, 0.070, 0.0, Color.DARK_GRAY);
 		Background bg2 = new Background(50, 0.045, 0.0, Color.GRAY);
@@ -70,6 +70,7 @@ public class GameRule implements GameRules {
 			Player p;
 			p = (Player) (a instanceof Player ? a : b);
 			p.setCurrentState(new PlayerExplodingState(p));
+			System.out.println("Colidiu");
 			p.setExplosionS(MainLoop.getInstance().getCurrentTime());
 			p.setExplisionE(MainLoop.getInstance().getCurrentTime() + 2000);
 			// Se houve uma colisão entre Player e mais algo, retorna true sai
