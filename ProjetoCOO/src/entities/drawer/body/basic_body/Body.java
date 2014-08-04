@@ -59,7 +59,7 @@ public abstract class Body {
 			
 			if(!pt.isFromEnemy()) {
 				double dist = dist(p, pt);
-				if(dist < p.getRaio()){		
+				if(dist < p.getRaio() + pt.getRaio() * 0.8){		
 					return true;
 				}
 			}
@@ -74,7 +74,7 @@ public abstract class Body {
 
 			if(pt.isFromEnemy()) {
 				double dist = dist(pt, p);
-				if(dist < p.getRaio()){		
+				if(dist < p.getRaio() + pt.getRaio() * 0.8){		
 					return true;
 				}
 			}
