@@ -1,6 +1,6 @@
 package entities.drawer;
 
-import enemies.strategy.EnemyStrategy;
+import enemies.strategy.Enemy1Strategy;
 import enemies.strategy.IStrategy;
 import entities.drawer.body.basic_body.Posicao;
 import entities.drawer.body.dinamic_bodies.DBody;
@@ -15,7 +15,7 @@ public class Enemies extends DBody {
 		return velocidadeLinear;
 	}
 	
-	public Enemies(Posicao posicao, double vel, double raio,EnemyStrategy strategy) {
+	public Enemies(Posicao posicao, double vel, double raio,Enemy1Strategy strategy) {
 		super(posicao.getX(), posicao.getY(),0,0, raio, 0, 0, MainLoop.getInstance().getCurrentTime());
 	}
 
@@ -39,5 +39,8 @@ public class Enemies extends DBody {
 	
 	public void setStrategy(IStrategy strategy){
 		this.strategy = strategy;
+	}
+	public void setVelocidadeRotacao(double velocidadeRotacao) {
+		this.velocidadeRotacao = velocidadeRotacao;
 	}
 }

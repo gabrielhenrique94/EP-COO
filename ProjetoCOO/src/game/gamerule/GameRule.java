@@ -80,7 +80,7 @@ public class GameRule implements GameRules {
 			ProjectTiles pt = (ProjectTiles) (a instanceof ProjectTiles?a:b);
 			
 			if(!pt.isFromEnemy()) {
-				e.setCurrentState(new EnemyExplodingState());
+				e.setCurrentState(new EnemyExplodingState(e));
 				e.setExplosionS(MainLoop.getInstance().getCurrentTime());
 				e.setExplisionE(MainLoop.getInstance().getCurrentTime() + 500);
 			}

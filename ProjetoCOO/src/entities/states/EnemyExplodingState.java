@@ -1,19 +1,30 @@
 package entities.states;
 
+import entities.drawer.Enemies;
+import lib.GameLib;
+import game.gameloop.MainLoop;
+import game.gamerule.GameRule;
 import interfaces.States;
 
 public class EnemyExplodingState implements States {
-
+	private Enemies enemy;
+	
+	public EnemyExplodingState(Enemies enemy) {
+		this.enemy = enemy;
+	}
+	
 	@Override
 	public void doState() {
-		// TODO Auto-generated method stub
-		
+		if(MainLoop.getInstance().getCurrentTime() > enemy.getExplosionE()){
+			((GameRule) MainLoop.getInstance().getRules()).removeBody(enemy);
+		}				
 	}
 
 	@Override
 	public void drawState() {
-		// TODO Auto-generated method stub
-		
+		double alpha = (MainLoop.getInstance().getCurrentTime() - enemy.getExplosionS() / enemy.getExplosionE()- enemy.getExplosionS());
+		GameLib.drawExplosion(enemy.getPosicao().getX(), enemy.getPosicao().getY(), alpha);			
 	}
-
+	
 }
+
