@@ -11,17 +11,21 @@ public class Enemies extends DBody {
 	private double velocidadeRotacao;
 	private IStrategy strategy;
 	private double velocidadeLinear;
+	
 	public double getVelocidadeLinear(){
 		return velocidadeLinear;
 	}
 	
-	public Enemies(Posicao posicao, double vel, double raio,Enemy1Strategy strategy) {
+	public Enemies(Posicao posicao, double vel, double raio, double angulo, double velRot, Enemy1Strategy strategy) {
 		super(posicao.getX(), posicao.getY(),0,0, raio, 0, 0, MainLoop.getInstance().getCurrentTime());
+		this.velocidadeLinear = vel;
+		this.angulo = angulo;
+		this.velocidadeRotacao = velRot;
 	}
 
 	@Override
 	public void draw() {
-		strategy.draw();
+		this.getCurrentState().drawState();
 	}
 
 	public double getAngulo() {
