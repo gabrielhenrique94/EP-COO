@@ -32,4 +32,12 @@ public abstract class DBody extends Body {
 	public long getNextShot() {
 		return nextShot;
 	}
+	
+	public void setExplisionE(double explisionE) {
+		this.explisionE = explisionE;
+	}
+	
+	public void setExplosionS(double explosionS) {
+		this.explosionS = explosionS;
+	}
 }
