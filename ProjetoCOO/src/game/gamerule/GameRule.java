@@ -97,14 +97,9 @@ public class GameRule implements GameRules {
 	@Override
 	public void draw() {
 		for(Body b : this.playerList)
-<<<<<<< HEAD
 			if(b != null)
 				b.draw();
-=======
-			b.draw();
 
 		GameLib.display();
-		
->>>>>>> branch 'master' of https://github.com/gabrielhenrique94/EP-COO.git
 	}
 }
