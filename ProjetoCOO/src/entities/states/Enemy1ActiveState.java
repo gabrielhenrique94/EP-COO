@@ -40,7 +40,7 @@ public class Enemy1ActiveState implements States{
 	@Override
 	public void drawState() {
 		GameLib.setColor(Color.CYAN);
-		GameLib.drawCircle(enemy.getPosicao().getX(),enemy.getPosicao().getY(),enemy.getRaio());
+		GameLib.drawCircle(enemy.getPosicao().getX(), enemy.getPosicao().getY(), enemy.getRadius());
 	}
 
 }

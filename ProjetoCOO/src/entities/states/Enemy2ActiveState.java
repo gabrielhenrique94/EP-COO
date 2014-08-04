@@ -32,7 +32,7 @@ public class Enemy2ActiveState implements States {
 					enemy.getVelocidadeLinear() * Math.cos(enemy.getAngulo())
 							* MainLoop.getInstance().getDelta(),
 					enemy.getVelocidadeLinear() * Math.sin(enemy.getAngulo())
-							* MainLoop.getInstance().getDelta() * (-1.0));
+							* MainLoop.getInstance().getDelta());
 
 			enemy.setAngulo(enemy.getAngulo() + enemy.getVelocidadeRotacao()
 					* MainLoop.getInstance().getDelta());
@@ -87,8 +87,7 @@ public class Enemy2ActiveState implements States {
 	@Override
 	public void drawState() {
 		GameLib.setColor(Color.MAGENTA);
-		GameLib.drawDiamond(enemy.getPosicao().getX(), enemy.getPosicao()
-				.getX(), enemy.getRadius());
+		GameLib.drawDiamond(enemy.getPosicao().getX(), enemy.getPosicao().getY(), enemy.getRadius());
 	}
 
 }

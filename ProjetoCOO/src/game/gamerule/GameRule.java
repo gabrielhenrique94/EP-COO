@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lib.GameLib;
+import enemies.strategy.Enemy1Strategy;
 import enemies.strategy.Enemy2Strategy;
 import entities.drawer.Background;
 import entities.drawer.Enemies;
@@ -26,7 +27,8 @@ public class GameRule implements GameRules {
 	private List<Background> bgList;
 	private long nextEnemy2;
 	private int enemy2_count;
-
+	private long nextEnemy1;
+	
 	public GameRule() {
 		this.playerList = new ArrayList<Body>();
 		this.bgList = new ArrayList<Background>();
@@ -47,7 +49,7 @@ public class GameRule implements GameRules {
 		this.playerList.add(Player.getInstance());
 		
 		this.nextEnemy2 = System.currentTimeMillis() + 7000;
-
+		this.nextEnemy1 = System.currentTimeMillis() + 2000; 
 	}
 	
 	public void removeBody(Body body){
@@ -103,6 +105,15 @@ public class GameRule implements GameRules {
 			Body b = this.playerList.get(i);
 			if(b != null)
 				b.getCurrentState().doState();
+		}
+	
+		if(MainLoop.getInstance().getCurrentTime() > nextEnemy1){
+		
+			Enemies enemy = new Enemies(new Posicao(Math.random() * (GameLib.WIDTH - 20.0) + 10.0, -10.0),
+					0.20 + Math.random() * 0.15, 9.0,3 * Math.PI / 2, 0.0, null);
+			enemy.setStrategy(new Enemy1Strategy(enemy));
+			this.playerList.add(enemy);
+			nextEnemy1 = MainLoop.getInstance().getCurrentTime() + 500;
 		}
 		
 		if(MainLoop.getInstance().getCurrentTime() > nextEnemy2){				

@@ -38,7 +38,6 @@ public class Enemies extends DBody {
 
 	public void setAngulo(double d) {
 		this.angulo = d;
-		
 	}
 	
 	public void setStrategy(IStrategy strategy){
