@@ -29,8 +29,8 @@ public class Enemy1ActiveState implements States{
 			enemy.setAngulo(enemy.getAngulo() + enemy.getVelocidadeRotacao() * MainLoop.getInstance().getDelta());
 		
 			if(MainLoop.getInstance().getCurrentTime() > enemy.getNextShot() && enemy.getPosicao().getY() < Player.getInstance().getPosicao().getY()){
-				((GameRule) MainLoop.getInstance().getRules()).createProjectile(enemy.getPosicao() ,
-						new Velocidade(Math.cos(enemy.getAngulo())*0.45, Math.sin(enemy.getAngulo())*0.45 *-1.0), true);
+				((GameRule) MainLoop.getInstance().getRules()).createEnemyProjectile(enemy.getPosicao() ,
+						new Velocidade(Math.cos(enemy.getAngulo())*0.45, Math.sin(enemy.getAngulo())*0.45 *-1.0), 2.0, true);
 				
 				enemy.setNextShot((long) (MainLoop.getInstance().getCurrentTime() + 200 + Math.random() * 500));
 			}

@@ -39,6 +39,11 @@ public class GameRule implements GameRules {
 		playerList.add(bala);
 	}
 	
+	public void createEnemyProjectile(Posicao pos , Velocidade v, double raio, boolean fromEnemy){
+		ProjectTiles bala = new ProjectTiles(pos.getX(), pos.getY(), v.getX(), v.getY(), raio, fromEnemy);
+		playerList.add(bala);
+	}
+	
 	private void initialize() {
 		Background bg1 = new Background(20, 0.070, 0.0, Color.DARK_GRAY);
 		Background bg2 = new Background(50, 0.045, 0.0, Color.GRAY);

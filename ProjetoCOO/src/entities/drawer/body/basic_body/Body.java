@@ -29,6 +29,10 @@ public abstract class Body {
 		return vel;
 	}
 
+	public void setRaio(double raio) {
+		this.raio = raio;
+	}
+	
 	public double getRaio() {
 		return raio;
 	}
