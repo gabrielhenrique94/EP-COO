@@ -7,6 +7,7 @@ import entities.drawer.Player;
 import entities.drawer.ProjectTiles;
 import entities.states.EnemyExplodingState;
 import entities.states.InactiveState;
+import entities.states.PlayerActiveState;
 
 public abstract class Body {
 
@@ -62,8 +63,10 @@ public abstract class Body {
 			ProjectTiles pt = (ProjectTiles)(b1 instanceof ProjectTiles?b1:b2);
 			
 			if(!pt.isFromEnemy()) {
-				double dist = dist(p, pt);
-				if(dist < p.getRaio() + pt.getRaio() * 0.8){		
+				double dist = p.getPosicao().distancia(pt.getPosicao());
+				System.out.println("Dist: " + dist);
+				System.out.println("raios: " + b1.getRaio() + "  " + b2.getRaio());
+				if(dist < (p.getRaio() + pt.getRaio()) * 0.8){		
 					return true;
 				}
 			}
@@ -77,8 +80,9 @@ public abstract class Body {
 			ProjectTiles pt = (ProjectTiles)(b1 instanceof ProjectTiles?b1:b2);
 
 			if(pt.isFromEnemy()) {
-				double dist = dist(pt, p);
-				if(dist < p.getRaio() + pt.getRaio() * 0.8){		
+				double dist = pt.getPosicao().distancia(p.getPosicao());
+				if(dist < (b1.getRaio() + b2.getRaio()) * 0.8){	
+					System.out.println("Bateu é gol!!!");
 					return true;
 				}
 			}
@@ -88,15 +92,9 @@ public abstract class Body {
 	}
 
 	public boolean checkColission(Body other) {
-		return Body.checkColission(this, other);
-	}
-	
-	private static double dist(Body b1, Body b2) {
-		double dx = b1.getPosicao().getX() - b2.getPosicao().getX();
-		double dy = b1.getPosicao().getY() - b2.getPosicao().getY();
-		double dist = Math.sqrt(dx * dx + dy * dy);
-		
-		return dist;
+		if(this.getCurrentState() instanceof PlayerActiveState)
+			return Body.checkColission(this, other);
+		return false;
 	}
 
 	public abstract void draw();

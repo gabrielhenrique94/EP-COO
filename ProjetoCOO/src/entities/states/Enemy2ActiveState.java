@@ -87,7 +87,7 @@ public class Enemy2ActiveState implements States {
 	@Override
 	public void drawState() {
 		GameLib.setColor(Color.MAGENTA);
-		GameLib.drawDiamond(enemy.getPosicao().getX(), enemy.getPosicao().getY(), enemy.getRadius());
+		GameLib.drawDiamond(enemy.getPosicao().getX(), enemy.getPosicao().getY(), enemy.getRaio());
 	}
 
 }

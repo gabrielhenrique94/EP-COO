@@ -44,17 +44,6 @@ public class PlayerActiveState implements States {
 				System.out.println("Atirei");
 				this.body.addProjectTile();
 				this.body.setNextShot(MainLoop.getInstance().getCurrentTime() + 100);
-				
-				/*
-				 * Esperando o controle de Body no GameRule int free =
-				 * findFreeIndex(projectile_states); if (free <
-				 * projectile_states.length) {
-				 * 
-				 * projectile_X[free] = player_X; projectile_Y[free] = player_Y
-				 * - 2 * player_radius; projectile_VX[free] = 0.0;
-				 * projectile_VY[free] = -1.0; projectile_states[free] = 1;
-				 * player_nextShot = currentTime + 100; }
-				 */
 			}
 		}
 	}
@@ -63,7 +52,7 @@ public class PlayerActiveState implements States {
 	public void drawState() {
 		GameLib.setColor(Color.BLUE);
 		GameLib.drawPlayer(this.body.getPosicao().getX(), this.body
-				.getPosicao().getY(), this.body.getRadius());
+				.getPosicao().getY(), this.body.getRaio());
 	}
 
 }

@@ -43,6 +43,8 @@ public class Posicao {
 	
 	//Dalhe pitagoras
 	public static double distancia(Posicao pos1, Posicao pos2){
-		return Math.sqrt(Math.pow(pos1.getX()+pos2.getX(),2)+ Math.pow(pos1.getY()+pos2.getY(),2));
+		double dx = pos1.getX()-pos2.getX();
+		double dy = pos1.getY()-pos2.getY();
+		return Math.sqrt(dx * dx + dy * dy);
 	}
 }
