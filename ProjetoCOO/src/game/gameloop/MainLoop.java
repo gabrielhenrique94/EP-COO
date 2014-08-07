@@ -76,6 +76,7 @@ public class MainLoop {
 			rules.draw();
 			
 			//GameLib.display();
+			//System.out.println(((GameRule)getRules()).getPlayerList());
 			
 			busyWait(currentTime + 5);
 		}	

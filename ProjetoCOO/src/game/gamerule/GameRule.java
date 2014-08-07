@@ -41,7 +41,7 @@ public class GameRule implements GameRules {
 	
 	public void createEnemyProjectile(Posicao pos , Velocidade v, double raio, boolean fromEnemy){
 		ProjectTiles bala = new ProjectTiles(pos.getX(), pos.getY(), v.getX(), v.getY(), raio, fromEnemy);
-		playerList.add(bala);
+		//playerList.add(bala);
 	}
 	
 	private void initialize() {
@@ -75,6 +75,10 @@ public class GameRule implements GameRules {
 				}
 			}
 		}
+	}
+	
+	public List<Body> getPlayerList() {
+		return playerList;
 	}
 
 	@Override

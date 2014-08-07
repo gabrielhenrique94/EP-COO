@@ -21,6 +21,8 @@ public class PlayerExplodingState implements States {
 
 	@Override
 	public void drawState() {
+		System.out.println("CurrentTime: " + MainLoop.getInstance().getCurrentTime() + " ExplosionE e S" + body.getExplosionS() + "  " + body.getExplosionE());
+		
 		double alpha = (MainLoop.getInstance().getCurrentTime() - this.body
 				.getExplosionS())
 				/ (this.body.getExplosionE() - this.body.getExplosionS());

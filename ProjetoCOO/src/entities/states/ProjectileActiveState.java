@@ -18,8 +18,7 @@ public class ProjectileActiveState implements States {
 
 	@Override
 	public void doState() {
-		if (this.body.getPosicao().getX() < 0
-				|| this.body.getPosicao().getY() > GameLib.HEIGHT) {
+		if (this.body.getPosicao().getY() < 0) {
 			this.body.setCurrentState(new ProjectileInactiveState(this.body));
 		} else {
 			this.body.getPosicao().move(0, this.body.getVelocidade().getY() * MainLoop.getInstance().getDelta());

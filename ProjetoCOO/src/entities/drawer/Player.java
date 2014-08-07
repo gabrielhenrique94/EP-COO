@@ -8,6 +8,7 @@ import entities.drawer.body.basic_body.Body;
 import entities.drawer.body.dinamic_bodies.DBody;
 import entities.states.PlayerActiveState;
 import game.gameloop.MainLoop;
+import game.gamerule.GameRule;
 
 /*Player e Enemy usam Factory?*/
 
@@ -28,6 +29,12 @@ public class Player extends DBody {
 	@Override
 	public void draw() {
 		this.getCurrentState().drawState();
+	}
+	
+	public boolean checkColission(Body other) {
+		if(this.getCurrentState() instanceof PlayerActiveState)
+			return Body.checkColission(this, other);
+		return false;
 	}
 
 	public synchronized static Body getInstance() {

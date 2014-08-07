@@ -41,7 +41,6 @@ public class PlayerActiveState implements States {
 		if (GameLib.iskeyPressed(GameLib.KEY_CONTROL)) {
 
 			if (MainLoop.getInstance().getCurrentTime() > body.getNextShot()) {
-				System.out.println("Atirei");
 				this.body.addProjectTile();
 				this.body.setNextShot(MainLoop.getInstance().getCurrentTime() + 100);
 			}

@@ -14,6 +14,7 @@ public class ProjectileInactiveState implements States {
 
 	@Override
 	public void doState() {
+		System.out.println("Inativo?");
 		MainLoop.getInstance().removeBody(this.body);
 	}
 
