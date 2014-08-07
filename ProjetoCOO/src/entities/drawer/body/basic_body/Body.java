@@ -50,9 +50,6 @@ public abstract class Body {
 		// Colisão entre Player e Enemy 
 		if ((b1 instanceof Player || b2 instanceof Player)
 				&& (b1 instanceof Enemies || b2 instanceof Enemies)) {
-			
-			System.out.println("Player + Enemy");
-			
 			if (b1.pos.distancia(b2.pos) < (b1.raio + b2.raio) * 0.8) {
 				return true;
 			}
@@ -65,11 +62,8 @@ public abstract class Body {
 			
 			Enemies p = (Enemies)(b1 instanceof Enemies?b1:b2);
 			ProjectTiles pt = (ProjectTiles)(b1 instanceof ProjectTiles?b1:b2);
-			System.out.println("projectile + Enemy");
 			if(!pt.isFromEnemy()) {
 				double dist = p.getPosicao().distancia(pt.getPosicao());
-				System.out.println("Dist: " + dist);
-				System.out.println("raios: " + b1.getRaio() + "  " + b2.getRaio());
 				if(dist < (p.getRaio() + pt.getRaio()) * 0.8){		
 					return true;
 				}
@@ -82,8 +76,6 @@ public abstract class Body {
 				&& (b1 instanceof ProjectTiles || b2 instanceof ProjectTiles)) {
 			Player p = (Player)(b1 instanceof Player?b1:b2);
 			ProjectTiles pt = (ProjectTiles)(b1 instanceof ProjectTiles?b1:b2);
-			
-			System.out.println("projectile + Player");
 			
 			if(pt.isFromEnemy()) {
 				double dist = pt.getPosicao().distancia(p.getPosicao());

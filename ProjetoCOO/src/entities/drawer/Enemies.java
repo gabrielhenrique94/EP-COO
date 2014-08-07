@@ -2,8 +2,11 @@ package entities.drawer;
 
 import enemies.strategy.Enemy1Strategy;
 import enemies.strategy.IStrategy;
+import entities.drawer.body.basic_body.Body;
 import entities.drawer.body.basic_body.Posicao;
 import entities.drawer.body.dinamic_bodies.DBody;
+import entities.states.EnemyExplodingState;
+import entities.states.PlayerActiveState;
 import game.gameloop.MainLoop;
 
 public class Enemies extends DBody {
@@ -26,6 +29,12 @@ public class Enemies extends DBody {
 	@Override
 	public void draw() {
 		this.getCurrentState().drawState();
+	}
+	
+	public boolean checkColission(Body other) {
+		if(!(this.getCurrentState() instanceof EnemyExplodingState))
+			return Body.checkColission(this, other);
+		return false;
 	}
 
 	public double getAngulo() {

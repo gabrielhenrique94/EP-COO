@@ -22,11 +22,12 @@ public class EnemyExplodingState implements States {
 
 	@Override
 	public void drawState() {
-		System.out.println("CurrentTime: " + MainLoop.getInstance().getCurrentTime() + " ExplosionE e S" + enemy.getExplosionS() + "  " + enemy.getExplosionE());
+		double alpha = (MainLoop.getInstance().getCurrentTime() - this.enemy.getExplosionS())
+				/ (this.enemy.getExplosionE() - this.enemy.getExplosionS());
 		
-		double alpha = (MainLoop.getInstance().getCurrentTime()
-				- enemy.getExplosionS() / enemy.getExplosionE() - enemy
-				.getExplosionS());
+		// Pra tirar o erro que dá quando alpha fica maior que 1
+		alpha = alpha>1.0?1.0:alpha;
+		
 		GameLib.drawExplosion(enemy.getPosicao().getX(), enemy.getPosicao()
 				.getY(), alpha);
 	}
