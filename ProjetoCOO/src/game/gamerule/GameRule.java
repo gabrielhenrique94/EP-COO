@@ -28,6 +28,7 @@ public class GameRule implements GameRules {
 	private int enemy2_count;
 	private long nextEnemy1;
 	private double enemy2_spawnX;
+	private long nextEnemy3 = 0;
 	
 	public GameRule() {
 		this.playerList = new ArrayList<Body>();
@@ -143,9 +144,16 @@ public class GameRule implements GameRules {
 					enemy2_count = 0;
 					enemy2_spawnX = Math.random() > 0.5 ? GameLib.WIDTH * 0.2 : GameLib.WIDTH * 0.8;
 					nextEnemy2 = (long) (MainLoop.getInstance().getCurrentTime()+ 3000 + Math.random() * 3000);
-					
+			
 				}
 			}
+		if(MainLoop.getInstance().getCurrentTime() > nextEnemy3){
+			Enemies enemy = new Enemies(new Posicao(Math.random() * (GameLib.WIDTH - 20.0) + 10.0, -10.0),
+					0.20 + Math.random() * 0.15, 9.0,3 * Math.PI / 2, 0.0, null);
+			enemy.setStrategy(new Enemy3Strategy(enemy));
+			this.playerList.add(enemy);
+			nextEnemy3 = MainLoop.getInstance().getCurrentTime() + 3000;
+		}
 	}
 
 	@Override
