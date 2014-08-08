@@ -70,17 +70,15 @@ public class Enemy2ActiveState implements States {
 				double[] angles = { Math.PI / 2 + Math.PI / 8, Math.PI / 2,
 						Math.PI / 2 - Math.PI / 8 };
 
-				int max = (int) (Math.random() * 4.0);
-				for (int k = 0; k < max; k++) {
+				for (int k = 0; k < angles.length; k++) {
 
-					double a = enemy.getAngulo() + Math.random() * Math.PI / 6
-							- Math.PI / 12;
+					double a = angles[k] + Math.random() * Math.PI / 6 - Math.PI / 12;
 					double vx = Math.cos(a);
 					double vy = Math.sin(a);
 					((GameRule) MainLoop.getInstance().getRules())
-							.createProjectile(new Posicao(enemy.getPosicao()
+							.createEnemyProjectile(new Posicao(enemy.getPosicao()
 									.getX(), enemy.getPosicao().getY()),
-									new Velocidade(vx * 0.30, vy * 0.30), true);
+									new Velocidade(vx * 0.30, vy * 0.30),2.0, true);
 				}
 			}
 		}

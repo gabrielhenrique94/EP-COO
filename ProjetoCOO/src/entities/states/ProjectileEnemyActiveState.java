@@ -21,7 +21,7 @@ public class ProjectileEnemyActiveState implements States{
 		if(this.body.getPosicao().getY() > GameLib.HEIGHT) {
 			((GameRule)MainLoop.getInstance().getRules()).removeBody(this.body);
 		} else {
-			this.body.getPosicao().move(0, this.body.getVelocidade().getY() * MainLoop.getInstance().getDelta());
+			this.body.getPosicao().move(this.body.getVelocidade().getX() * MainLoop.getInstance().getDelta(), this.body.getVelocidade().getY() * MainLoop.getInstance().getDelta());
 		}
 	}
 
