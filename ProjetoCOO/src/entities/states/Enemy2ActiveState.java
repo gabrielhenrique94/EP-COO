@@ -27,12 +27,14 @@ public class Enemy2ActiveState implements States {
 
 			boolean shootNow = false;
 			double previousY = enemy.getPosicao().getY();
-
+			System.out.printf("{\n\tx:%f,\n\ty:%f,\n\tv:%f\n\tdelta:%d,\n\tRV:%f,\n\tangle:%f\n}\n",
+					enemy.getPosicao().getX(),enemy.getPosicao().getY(),
+					enemy.getVelocidadeLinear(),MainLoop.getInstance().getDelta(),enemy.getVelocidadeRotacao(),enemy.getAngulo());
 			enemy.getPosicao().move(
 					enemy.getVelocidadeLinear() * Math.cos(enemy.getAngulo())
 							* MainLoop.getInstance().getDelta(),
 					enemy.getVelocidadeLinear() * Math.sin(enemy.getAngulo())
-							* MainLoop.getInstance().getDelta());
+							* MainLoop.getInstance().getDelta()*(-1.0));
 
 			enemy.setAngulo(enemy.getAngulo() + enemy.getVelocidadeRotacao()
 					* MainLoop.getInstance().getDelta());
